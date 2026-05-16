@@ -1,6 +1,8 @@
 <?php
-
 require_once __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
 
 $mysqlHost = "localhost";
 $mysqlPort = "3307";
@@ -24,7 +26,7 @@ try {
 }
 
 try {
-    $mongoClient = new MongoDB\Client("mongodb://localhost:27017");
+    $mongoClient = new MongoDB\Client($_ENV['MONGO_URI']);
     $mongoDb = $mongoClient->guvi_project;
     $profileCollection = $mongoDb->profiles;
 } catch (Exception $e) {
@@ -48,5 +50,4 @@ try {
     ]);
     exit;
 }
-
 ?>
