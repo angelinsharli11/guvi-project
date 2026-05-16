@@ -1,0 +1,13 @@
+body {
+    background: linear-gradient(135deg, #74ebd5, #9face6);
+    font-family: Arial, sans-serif;
+}
+
+.form-card {
+    width: 400px;
+    border-radius: 15px;
+}
+
+.card {
+    border: none;
+}
